@@ -1,0 +1,55 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #ccc;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.topNavBar{
+  padding: 28px 16px;
+}
+.topNavBar>.logo{
+  float: left;
+  font-size: 24px;
+  font-family: "Hobo Std";
+  padding: 3px 0;
+}
+.topNavBar>.logo>.rs{
+  color: #E8676B;
+  margin-right: 4px;
+}
+.topNavBar>.logo>.card{
+  color: #9A9DA2;
+}
+.topNavBar>nav{
+  float: right;
+  padding: 8px 0;
+}
+.topNavBar>nav>ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.topNavBar>nav>ul>li{
+  margin: 0 17px;
+  float: left;
+}
+.topNavBar>nav>ul>li>a{
+  font-size: 12px;
+  font-weight: bold;
+  color: #CCCED1;
+  display: block;
+  border-bottom: 3px solid tranparent;
+}
+.topNavBar>nav>ul>li>a:hover{
+  border-bottom: 3px solid #E8676B;
+}
