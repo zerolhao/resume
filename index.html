@@ -4,61 +4,83 @@
 <head>
   <title>我的简历</title>
   <link rel="stylesheet" href="style.css">
+  <script src="//at.alicdn.com/t/font_501622_o1h3h7vxpfrbe29.js
+"></script>
+  <style type="text/css">
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
+  </style>
 </head>
 
 <body>
   <div class="topNavBar clearfix">
-    <a class="logo clearfix" href="#">
+    <div class="inner">
+      <a class="logo clearfix" href="#">
       <span class="rs">RS</span><span class="card">card</span>
-    </a>
-    <nav>
-      <ul class="clearfix">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Experience</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Other</a></li>
-      </ul>
-    </nav>
+      </a>
+      <nav>
+        <ul class="clearfix">
+          <li><a href="#">关于</a></li>
+          <li><a href="#">技能</a></li>
+          <li><a href="#">作品</a></li>
+          <li><a href="#">博客</a></li>
+          <li><a href="#">日历</a></li>
+          <li><a href="#">联系方式</a></li>
+          <li><a href="#">其它</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
-  <div class="banner"></div>
+  <div class="banner">
+    <div class="mask"></div>
+  </div>
   <main>
-    <div class="card">
-      <div class="pictureAndText">
+    <div class="userCard">
+      <div class="pictureAndText clearfix">
         <div class="picture">
-          <img src="#" alt="头像">
+          <img src="./img/avatar.jpg" width="299" height="347" alt="头像">
         </div>
         <div class="text">
-          <div class="profile">
-            <span>Hello</span>
-            <h1>凌号</h1>
-            <p>前端菜鸟</p>
-            <hr>
-            <dl>
-              <dt>年龄</dt>
-              <dd>22</dd>
-              <dt>所在城市</dt>
-              <dd>上海</dd>
-              <dt>邮箱</dt>
-              <dd>zerolhao@foxmail.com</dd>
-              <dt>手机号</dt>
-              <dd>18355372562</dd>
-            </dl>
-          </div>
+          <span class="welcome">
+            Hello
+            <span class="triangle"></span>
+          </span>
+          <h1>凌号</h1>
+          <p>前端菜鸟</p>
+          <hr>
+          <dl class="clearfix">
+            <dt>年龄</dt>
+            <dd>22</dd>
+            <dt>所在城市</dt>
+            <dd>上海</dd>
+            <dt>邮箱</dt>
+            <dd>zerolhao@foxmail.com</dd>
+            <dt>手机</dt>
+            <dd>18355372562</dd>
+          </dl>
         </div>
       </div>
-      <footer>
-        <a href="#"><img src="#" alt="#"></a>
-        <a href="#"><img src="#" alt="#"></a>
-        <a href="#"><img src="#" alt="#"></a>
-        <a href="#"><img src="#" alt="#"></a>
-        <a href="#"><img src="#" alt="#"></a>
-        <a href="#"><img src="#" alt="#"></a>
-        <a href="#"><img src="#" alt="#"></a>
+      <footer class="media">
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-icongithub"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-weibo"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-ssss"></use>
+          </svg>
+        </a>
       </footer>
     </div>
     <a href="#">下载 PDF 简历</a>
