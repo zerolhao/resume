@@ -67,7 +67,7 @@ hr{
 }
 
 .banner{
-  background-image: url(img/rsCover.jpg);
+  background-image: url(./img/rsCover.jpg);
   background-position: center center;
   background-size: cover;
   height: 515px;
