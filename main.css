@@ -6,15 +6,21 @@ hr{height: 0; border: 0; border-top: 1px solid #DEDEDE; }
 
 .clearfix::after{content: ''; display: block; clear: both; }
 
-.topNavBar{width: 100%; position: fixed; }
+.topNavBar{width: 100%; position: fixed; transition: all 0.3s; color: #CCCED1}
+.topNavBar.sticky{
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  color: #3d4451;
+}
 .topNavBar>.inner{padding: 28px 16px; }
+.topNavBar.sticky> .inner{padding: 10px 14px; }
 .topNavBar .logo{float: left; font-size: 24px; font-family: "Hobo Std"; padding: 3px 0; }
 .topNavBar .logo>.rs{color: #E8676B; margin-right: 4px; }
 .topNavBar .logo>.card{color: #9A9DA2; }
 .topNavBar nav{float: right; padding: 3px 0; }
 .topNavBar nav>ul{list-style: none; padding: 0; margin: 0; }
 .topNavBar nav>ul>li{margin: 0 17px; float: left; }
-.topNavBar nav>ul>li>a{font-size: 12px; font-weight: bold; padding-top: 8px; padding-bottom: 2px; color: #CCCED1; display: block; border-bottom: 3px solid transparent; }
+.topNavBar nav>ul>li>a{font-size: 12px; font-weight: bold; padding-top: 8px; padding-bottom: 2px; color: inherit; display: block; border-bottom: 3px solid transparent; }
 .topNavBar nav>ul>li>a:hover{border-bottom: 3px solid #E8676B; }
 
 .banner{background-image: url(./img/rsCover.jpg); background-position: center center; background-size: cover; height: 515px; }
