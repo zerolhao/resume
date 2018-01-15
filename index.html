@@ -234,11 +234,13 @@
   </section>
 
   <script>
-    siteWelcome.classList.remove('active')
+    // loadding 动画
+    //siteWelcome.classList.remove('active')
     setTimeout(function(){
       siteWelcome.classList.remove('active')
     },2000)
 
+    // sticky navbar
     window.onscroll = function(){
       if(window.scrollY !== 0){
         siteTopNavBar.classList.add('sticky')
@@ -247,6 +249,7 @@
       }
     }
 
+    // hightlight navbar and show submenubar
     let liTags = document.querySelectorAll('nav.menu > ul > li')
     for(let i=0; i<liTags.length; i++) {
       liTags[i].onmouseenter = function(e){
@@ -254,6 +257,19 @@
       }
       liTags[i].onmouseleave = function(e){
         e.currentTarget.classList.remove('active')
+      }
+    }
+
+    // auto scroll smoothly
+    let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+    for(let i=0; i<aTags.length; i++) {
+      aTags[i].onclick = function(e){
+        e.preventDefault()
+        let a = e.currentTarget
+        let href = a.getAttribute('href')
+        let element = document.querySelector(href)
+        let top = element.offsetTop
+        window.scrollTo(0, top-70)
       }
     }
   </script>
