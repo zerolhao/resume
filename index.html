@@ -75,12 +75,26 @@
       <a class="logo clearfix" href="#">
       <span class="rs">RS</span><span class="card">card</span>
       </a>
-      <nav>
+      <nav class="menu">
         <ul class="clearfix">
-          <li><a href="#">关于</a></li>
-          <li><a href="#">技能</a></li>
-          <li><a href="#">作品</a></li>
-          <li><a href="#">博客</a></li>
+          <li><a href="#siteAbout">关于</a></li>
+          <li><a href="#siteSkills">技能</a></li>
+          <li>
+            <a href="#sitePortfolio">作品</a>
+            <ul class="submenu">
+              <li>作品1</li>
+              <li>作品2</li>
+              <li>作品3</li>
+            </ul>
+          </li>
+          <li>
+            <a href="#siteBlogs">博客</a>
+            <ul class="submenu">
+              <li>博客1</li>
+              <li>博客2</li>
+              <li>博客3</li>
+            </ul>
+          </li>
           <li><a href="#">日历</a></li>
           <li><a href="#">联系方式</a></li>
           <li><a href="#">其它</a></li>
@@ -92,7 +106,7 @@
     <div class="mask"></div>
   </div>
   <main>
-    <div class="userCard">
+    <div id='siteAbout' class="userCard">
       <div class="pictureAndText clearfix">
         <div class="picture">
           <img src="./img/avatar.jpg" width="299" height="347" alt="头像">
@@ -142,7 +156,7 @@
       凌号，前端菜鸟一个，目前正于饥人谷学习中。
     </p>
   </main>
-  <section class="skills">
+  <section id='siteSkills' class="skills">
     <h2>技能</h2>
     <ol class="skillList clearfix">
       <li>
@@ -183,7 +197,7 @@
       </li>
     </ol>
   </section>
-  <section class="portfolio">
+  <section id='sitePortfolio' class="portfolio">
     <h2>作品集</h2>
     <nav>
       <ol class="clearfix">
@@ -230,6 +244,16 @@
         siteTopNavBar.classList.add('sticky')
       } else {
         siteTopNavBar.classList.remove('sticky')
+      }
+    }
+
+    let liTags = document.querySelectorAll('nav.menu > ul > li')
+    for(let i=0; i<liTags.length; i++) {
+      liTags[i].onmouseenter = function(e){
+        e.currentTarget.classList.add('active')
+      }
+      liTags[i].onmouseleave = function(e){
+        e.currentTarget.classList.remove('active')
       }
     }
   </script>
