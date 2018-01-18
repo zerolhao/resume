@@ -6,14 +6,13 @@ hr{height: 0; border: 0; border-top: 1px solid #DEDEDE; }
 
 .clearfix::after{content: ''; display: block; clear: both; }
 
-.topNavBar{width: 100%; position: fixed; transition: all 0.3s; color: #CCCED1;}
-.topNavBar.sticky{
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-  color: #3d4451;
-}
+[data-offsetTop].offsetTop{transform: translateY(300px); }
+[data-offsetTop]{transform: translateY(0); transition: transform .5s; }
+
+.topNavBar{width: 100%; position: fixed; transition: all 0.3s; color: #CCCED1; z-index: 1;}
+.topNavBar.sticky{background-color: white; box-shadow: 0 0 10px rgba(0,0,0,0.4); color: #3d4451; }
 .topNavBar>.inner{padding: 28px 16px; }
-.topNavBar.sticky> .inner{padding: 10px 14px; }
+.topNavBar.sticky> .inner{padding: 10px 14px;}
 .topNavBar .logo{float: left; font-size: 24px; font-family: "Hobo Std"; padding: 3px 0; }
 .topNavBar .logo>.rs{color: #E8676B; margin-right: 4px; }
 .topNavBar .logo>.card{color: #9A9DA2; }
@@ -31,7 +30,7 @@ hr{height: 0; border: 0; border-top: 1px solid #DEDEDE; }
 .banner{background-image: url(./img/rsCover.jpg); background-position: center center; background-size: cover; height: 515px; }
 .banner>.mask{height: 515px; background-color: rgba(0,0,0,0.8); }
 
-.userCard{max-width: 940px; margin: auto; background-color: white; margin-top: -315px; box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.3); }
+.userCard{max-width: 940px; margin: 0 auto; background-color: white; margin-top: -315px; box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.3); }
 .userCard>.pictureAndText{padding: 50px; }
 .userCard .welcome{color: white; font-weight: bold; line-height: 22px; display: inline-block; background-color: #E6686A; padding: 4px 16px; position: relative; margin-bottom: 10px; }
 .userCard .welcome>.triangle{width: 0; border: 10px solid transparent; border-top-width: 0; border-left-color: #E6686A; display: block; position: absolute; top: 100%; left: 4px; }
@@ -52,6 +51,7 @@ main>.downloadResume{max-width: 940px; text-align: center; margin: 35px auto 0; 
 main>.downloadResume>a{display: inline-block; padding: 21px 55px; border: 1px solid #CDCFD1; border-radius: 4px; font-weight: bold; color: #3d4451; transition: box-shadow 0.2s; }
 main>.downloadResume>a:hover{box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.3); }
 main>.selfIntroduction{margin: 25px auto 0; max-width: 940px; font-size: 20px; line-height: 1.8; text-align: center; font-family: "楷体"; }
+
 section.skills, section.portfolio{margin: auto; max-width: 940px; margin-top: 60px; }
 section.skills>h2, section.portfolio>h2{text-align: center; color: #3D4451; font-size: 34px; line-height: 1.2; }
 section.skills>.skillList{background-color: #fff; padding: 40px 50px 15px; margin-top: 28px; box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.3); }
