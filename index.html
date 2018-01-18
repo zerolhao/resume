@@ -238,10 +238,12 @@
     //siteWelcome.classList.remove('active')
     setTimeout(function(){
       siteWelcome.classList.remove('active')
-    },2000)
+    },1000)
 
     // sticky navbar
-    window.onscroll = function(){
+    autoSticky()  // 刷新页面时并不一定是从开始位置显示
+    window.onscroll = autoSticky
+    function autoSticky(){
       if(window.scrollY !== 0){
         siteTopNavBar.classList.add('sticky')
       } else {
