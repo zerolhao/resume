@@ -242,7 +242,10 @@
 
     // sticky navbar
     autoSticky()  // 刷新页面时并不一定是从开始位置显示
-    window.onscroll = autoSticky
+    window.onscroll = function(){
+      autoSticky()
+      // auto hightlight navbar
+    }
     function autoSticky(){
       if(window.scrollY !== 0){
         siteTopNavBar.classList.add('sticky')
@@ -267,11 +270,24 @@
     for(let i=0; i<aTags.length; i++) {
       aTags[i].onclick = function(e){
         e.preventDefault()
-        let a = e.currentTarget
+        /*let a = e.currentTarget
         let href = a.getAttribute('href')
         let element = document.querySelector(href)
         let top = element.offsetTop
-        window.scrollTo(0, top-70)
+        */
+        let targetTop = document.querySelector(e.currentTarget.getAttribute('href')).offsetTop - 70
+        let currentTop = window.scrollY
+        let n = 30  // 一共动多少次
+        let distance = (targetTop - currentTop)/n
+        let duration = 500/n  // 多少时间动一次
+        let i = 1
+        let id = setInterval(()=>{
+          if(i === n){
+            clearInterval(id)
+          }
+          window.scrollTo(0, currentTop + distance * i)
+          i += 1
+        }, duration)
       }
     }
   </script>
