@@ -65,8 +65,9 @@ main>.downloadResume>a{display: inline-block; padding: 21px 55px; border: 1px so
 main>.downloadResume>a:hover{box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.3); }
 main>.selfIntroduction{margin: 25px auto 0; max-width: 940px; font-size: 20px; line-height: 1.8; text-align: center; font-family: "楷体"; }
 
-section.skills, section.portfolio{margin: auto; max-width: 940px; margin-top: 60px; }
-section.skills>h2, section.portfolio>h2{text-align: center; color: #3D4451; font-size: 34px; line-height: 1.2; }
+section.skills, section.portfolio, section.message{margin: auto; max-width: 940px; margin-top: 60px; }
+section.skills>h2, section.portfolio>h2, section.message>h2{text-align: center; color: #3D4451; font-size: 34px; line-height: 1.2; }
+
 section.skills>.skillList{background-color: #fff; padding: 40px 50px 15px; margin-top: 28px; box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.3); }
 section.skills>.skillList>li{width: 48%; float: left; }
 section.skills>.skillList>li:nth-child(even){float: right; }
@@ -75,7 +76,6 @@ section.skills>.skillList .progressBar{width: 100%; height: 5px; background-colo
 section.skills>.skillList .progressBar>.progress{width: 70%; height: 100%; background-color: #E8676B; border-radius: 5px; margin-left: 0; transition: margin-left 0.5s;}
 section.skills.offsetTop .progressBar>.progress{margin-left: -100%;}
 
-section.portfolio{text-align: center; margin-bottom: 300px; }
 /* section.portfolio>nav{text-align: center; display: inline-block; vertical-align: top; margin-top: 32px; }
 section.portfolio>nav>ol{margin: auto; display: inline-block; vertical-align: top; }
 section.portfolio>nav>ol>li{float: left; margin-left: 40px; cursor: pointer; }
@@ -92,9 +92,31 @@ section.portfolio>.works>.big{top: 0; left: 0; }
 section.portfolio>.works>.small:nth-child(2){top: 0px; left: 647px; }
 section.portfolio>.works>.small:nth-child(3){top: 312px; left: 647px; } */
 
-section.portfolio h2{ font-size: 34px;}
 section.portfolio .swiper-container {width: 940px; height: 705px; margin-top: 30px; box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.3); }
 section.portfolio .swiper-container>.swiper-button-prev 
 {background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23aaaaaa'%2F%3E%3C%2Fsvg%3E"); left: 5px; }
 section.portfolio .swiper-container>.swiper-button-next 
 {background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23aaaaaa'%2F%3E%3C%2Fsvg%3E"); right: 5px; }
+
+section.message{margin-bottom: 300px; }
+section.message>ul.messageList{
+  margin-top: 30px;
+  background-color: white;
+  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.3);
+  color: #696F79;
+  border-top: 1px solid #ddd;
+}
+section.message>ul.messageList>li{
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+}
+section.message>.leaveMessageForm{
+  width: 940px;
+  background-color: white;
+  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.3);
+  color: #696F79;
+  padding: 16px;
+  box-sizing: border-box; 
+}
+section.message>.leaveMessageForm>input[type='submit']{
+}

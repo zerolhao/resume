@@ -64,7 +64,6 @@ requestAnimationFrame(animate);
     },
     bindEvents: function() {
       var aTags = this.view.querySelectorAll('ul > li > a')
-      console.log(aTags)
       for (let i = 0; i < aTags.length; i++) {
         aTags[i].onclick = function(e) {
           e.preventDefault()
