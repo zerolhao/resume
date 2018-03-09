@@ -141,56 +141,24 @@
     </ol>
   </section>
   <section data-offsetTop id='sitePortfolio' class="portfolio">
-    <h2>作品集</h2>
-    <!-- 废弃轮播素材
-    <nav>
-      <ol class="clearfix">
-        <li id="portfolio1">所有</li>
-        <li id="portfolio2">框架</li>
-        <li id="portfolio3">原生JS&amp;CSS</li>
-      </ol>
-      <div id="portfolioBar" class="bar state-1">
-        <div class="bar-inner"></div>
+    <div id="slides">
+      <h2>作品集</h2>
+      <!-- 这里是轮播 -->
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <img src='img/keyboard-min.png' class="swiper-slide">
+          <img src='img/canvas-min.jpg' class="swiper-slide">
+          <img src='img/apple-style-slides-min.jpg' class="swiper-slide">
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
-    </nav>
-    <script>
-    portfolio1.onclick = function() {
-      portfolioBar.className = 'bar state-1'
-    }
-    portfolio2.onclick = function() {
-      portfolioBar.className = 'bar state-2'
-    }
-    portfolio3.onclick = function() {
-      portfolioBar.className = 'bar state-3'
-    }
-    </script>
-    <div class="works">
-      <div class="big">
-        <img src="img/1.jpg" alt="作品1">
-      </div>
-      <div class="small">
-        <img src="img/2.jpg" alt="作品2">
-      </div>
-      <div class="small">
-        <img src="img/3.jpg" alt="作品3">
-      </div>
-    </div>
-    -->
-    <!-- 这里是轮播 -->
-    <!-- Slider main container -->
-    <div class="swiper-container">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <img src='img/keyboard-min.png' class="swiper-slide">
-        <img src='img/canvas-min.jpg' class="swiper-slide">
-        <img src='img/apple-style-slides-min.jpg' class="swiper-slide">
-      </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
     </div>
   </section>
   <!-- 模块化 -->
