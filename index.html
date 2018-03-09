@@ -70,6 +70,7 @@
     display: flex;
   }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css">
   <link rel="stylesheet" href="main.css">
 </head>
 
@@ -206,41 +207,90 @@
   </section>
   <section data-offsetTop id='sitePortfolio' class="portfolio">
     <h2>作品集</h2>
-    <nav>
-      <ol class="clearfix">
-        <li id="portfolio1">所有</li>
-        <li id="portfolio2">框架</li>
-        <li id="portfolio3">原生JS&amp;CSS</li>
-      </ol>
-      <div id="portfolioBar" class="bar state-1">
-        <div class="bar-inner"></div>
-      </div>
-    </nav>
-    <script>
-    portfolio1.onclick = function() {
-      portfolioBar.className = 'bar state-1'
+<!--     <nav>
+  <ol class="clearfix">
+    <li id="portfolio1">所有</li>
+    <li id="portfolio2">框架</li>
+    <li id="portfolio3">原生JS&amp;CSS</li>
+  </ol>
+  <div id="portfolioBar" class="bar state-1">
+    <div class="bar-inner"></div>
+  </div>
+</nav>
+<script>
+portfolio1.onclick = function() {
+  portfolioBar.className = 'bar state-1'
+}
+portfolio2.onclick = function() {
+  portfolioBar.className = 'bar state-2'
+}
+portfolio3.onclick = function() {
+  portfolioBar.className = 'bar state-3'
+}
+</script>
+<div class="works">
+  <div class="big">
+    <img src="img/1.jpg" alt="作品1">
+  </div>
+  <div class="small">
+    <img src="img/2.jpg" alt="作品2">
+  </div>
+  <div class="small">
+    <img src="img/3.jpg" alt="作品3">
+  </div>
+</div> -->
+    <!-- 这里是轮播 -->
+    <style>
+    .swiper-container {
+      width: 940px;
+      height: 705px;
+      box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.3);
     }
-    portfolio2.onclick = function() {
-      portfolioBar.className = 'bar state-2'
+    .swiper-button-prev{
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23aaaaaa'%2F%3E%3C%2Fsvg%3E");
+      left: 5px;
     }
-    portfolio3.onclick = function() {
-      portfolioBar.className = 'bar state-3'
+    .swiper-button-next{
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23aaaaaa'%2F%3E%3C%2Fsvg%3E");
+      right: 5px;
     }
-    </script>
-    <div class="works">
-      <div class="big">
-        <img src="img/1.jpg" alt="作品1">
+    </style>
+    <!-- Slider main container -->
+    <div class="swiper-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <img src='img/keyboard-min.png' class="swiper-slide">
+        <img src='img/canvas-min.jpg' class="swiper-slide">
+        <img src='img/apple-style-slides-min.jpg' class="swiper-slide">
       </div>
-      <div class="small">
-        <img src="img/2.jpg" alt="作品2">
-      </div>
-      <div class="small">
-        <img src="img/3.jpg" alt="作品3">
-      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </section>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script>
+    <script>
+    var mySwiper = new Swiper('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+    </script>
   <script>
   // loadding 动画
   //siteWelcome.classList.remove('active')
@@ -256,7 +306,7 @@
   }
 
   autoSticky() // sticky navbar 刷新页面时并不一定是从开始位置显示
-  setTimeout(autoHightLight,1000)  // 刷新页面时自动高亮&指定块上浮效果
+  setTimeout(autoHightLight, 1000) // 刷新页面时自动高亮&指定块上浮效果
   //autoHightLight()
 
   // 拨动滚轮时
