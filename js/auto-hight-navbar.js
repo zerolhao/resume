@@ -1,3 +1,4 @@
+!function(){
   // 三个特殊块上浮特效
   // 添加 toTop class
   let specialTags = document.querySelectorAll('[data-offsetTop]')
@@ -9,7 +10,10 @@
   setTimeout(autoHightLight, 1000) // 刷新页面时自动高亮&指定块上浮效果
   //autoHightLight()
 
-
+  // 拨动滚轮时
+  window.addEventListener('scroll', () => {
+    autoHightLight()
+  })
 
 
   function autoHightLight() {
@@ -35,3 +39,4 @@
     }
     li.classList.add('hightlight')
   }
+}.call()
