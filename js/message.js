@@ -106,6 +106,28 @@ myForm.addEventListener('submit', function(e) {
       saveMessage: function() {
         let name = this.form.querySelector("input[name='name']").value
         let content = this.form.querySelector("input[name='content']").value
+        var len = 0
+        let nameArr = name.split('')
+        nameArr.forEach((ele)=>{
+          if(ele === '\u0020'){len++}
+        })
+        if(len === nameArr.length){
+          alert('请输入昵称和内容！')
+          return
+        }
+        len = 0
+        let contentArr = content.split('')
+        contentArr.forEach((ele)=>{
+          if(ele === '\u0020'){len++}
+        })
+        if(len === contentArr.length){
+          alert('请输入昵称和内容！')
+          return
+        }
+        /*if(!name || !content){
+          alert('请输入昵称和内容！')
+          return
+        }*/
         this.model.save(name,content)
           .then(function(object) {
             let li = document.createElement('li')
