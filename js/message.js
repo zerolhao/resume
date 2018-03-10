@@ -1,4 +1,4 @@
-var APP_ID = 'gTetAbFKeg2VgSlMXf31bfH2-gzGzoHsz';
+/*var APP_ID = 'gTetAbFKeg2VgSlMXf31bfH2-gzGzoHsz';
 var APP_KEY = 'd418rWCgfsIOWKuA7y1Tf41g';
 
 AV.init({
@@ -9,7 +9,7 @@ AV.init({
 var query = new AV.Query('Message');
 query.find()
   .then(function(messages) {
-    let array = messages.map((item) => item.attributes )
+    let array = messages.map((item) => item.attributes)
     array.forEach((item) => {
       let li = document.createElement('li')
       li.innerText = `${item.name}：${item.content}`
@@ -27,21 +27,80 @@ query.find()
 
 let myForm = document.querySelector('#postMessageForm')
 myForm.addEventListener('submit', function(e) {
-  e.preventDefault()
-  let name = myForm.querySelector("input[name='name']").value
-  let content = myForm.querySelector("input[name='content']").value
-  // 创建表
-  var Message = AV.Object.extend('Message');
-  // 创建数据
-  var messages = new Message();
-  messages.save({
-    name: name,
-    content: content
-  }).then(function(object) {
-    let li = document.createElement('li')
-    li.innerText = `${object.attributes.name}：${object.attributes.content}`
-    console.log(1)
-    let messageList = document.querySelector('#messageList')
-    messageList.appendChild(li)
-  })
-})
+    e.preventDefault()
+    let name = myForm.querySelector("input[name='name']").value
+    let content = myForm.querySelector("input[name='content']").value
+    // 创建表
+    var Message = AV.Object.extend('Message');
+    // 创建数据
+    var messages = new Message();
+    messages.save({
+      name: name,
+      content: content
+    }).then(function(object) {
+      let li = document.createElement('li')
+      li.innerText = `${object.attributes.name}：${object.attributes.content}`
+      console.log(1)
+      let messageList = document.querySelector('#messageList')
+      messageList.appendChild(li)
+    })
+  })*/
+
+  ! function() {
+    var view = document.querySelector('#postMessageForm')
+
+    var controller = {
+      view: null,
+      init: function(view) {
+        this.view = view
+        this.initAv()
+        this.loadMessage()
+        this.postMessage()
+      },
+      initAv: function() {
+        var APP_ID = 'gTetAbFKeg2VgSlMXf31bfH2-gzGzoHsz';
+        var APP_KEY = 'd418rWCgfsIOWKuA7y1Tf41g';
+        AV.init({
+          appId: APP_ID,
+          appKey: APP_KEY
+        });
+      },
+      loadMessage: function() {
+        var query = new AV.Query('Message');
+        query.find()
+          .then(function(messages) {
+            let array = messages.map((item) => item.attributes)
+            array.forEach((item) => {
+              let li = document.createElement('li')
+              li.innerText = `${item.name}：${item.content}`
+              let messageList = document.querySelector('#messageList')
+              messageList.appendChild(li)
+            })
+          });
+      },
+      postMessage: function() {
+        var myForm = this.view
+        console.log(myForm)
+        myForm.addEventListener('submit', function(e) {
+          e.preventDefault()
+          let name = myForm.querySelector("input[name='name']").value
+          let content = myForm.querySelector("input[name='content']").value
+          // 创建表
+          var Message = AV.Object.extend('Message');
+          // 创建数据
+          var messages = new Message();
+          messages.save({
+            name: name,
+            content: content
+          }).then(function(object) {
+            let li = document.createElement('li')
+            li.innerText = `${object.attributes.name}：${object.attributes.content}`
+            console.log(1)
+            let messageList = document.querySelector('#messageList')
+            messageList.appendChild(li)
+          })
+        })
+      }
+    }
+    controller.init(view)
+  }.call()
