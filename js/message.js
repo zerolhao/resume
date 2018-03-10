@@ -47,17 +47,10 @@ myForm.addEventListener('submit', function(e) {
   })*/
 
   ! function() {
-    var view = document.querySelector('#postMessageForm')
+    var view = document.querySelector('section.message')
 
-    var controller = {
-      view: null,
-      init: function(view) {
-        this.view = view
-        this.initAv()
-        this.loadMessage()
-        this.postMessage()
-      },
-      initAv: function() {
+    var model = {
+      init: function(){
         var APP_ID = 'gTetAbFKeg2VgSlMXf31bfH2-gzGzoHsz';
         var APP_KEY = 'd418rWCgfsIOWKuA7y1Tf41g';
         AV.init({
@@ -65,9 +58,41 @@ myForm.addEventListener('submit', function(e) {
           appKey: APP_KEY
         });
       },
-      loadMessage: function() {
+      fetch: function(){
         var query = new AV.Query('Message');
-        query.find()
+        return query.find()
+      },
+      save: function(name, content){
+        // 创建表
+        var Message = AV.Object.extend('Message');
+        // 创建数据
+        var messages = new Message();
+        return messages.save({
+          name: name,
+          content: content
+        })
+      }
+    }
+
+    var controller = {
+      view: null,
+      init: function(view,model) {
+        this.view = view
+        this.model = model
+        this.form = view.querySelector('#postMessageForm')
+        this.messageList = view.querySelector('#messageList')
+        this.model.init()
+        this.loadMessage()
+        this.bindEvents()
+      },
+      bindEvents: function(){
+        this.form.addEventListener('submit', (e)=> {
+          e.preventDefault()
+          this.saveMessage()
+        })
+      },
+      loadMessage: function() {
+          this.model.fetch()
           .then(function(messages) {
             let array = messages.map((item) => item.attributes)
             array.forEach((item) => {
@@ -78,29 +103,17 @@ myForm.addEventListener('submit', function(e) {
             })
           });
       },
-      postMessage: function() {
-        var myForm = this.view
-        console.log(myForm)
-        myForm.addEventListener('submit', function(e) {
-          e.preventDefault()
-          let name = myForm.querySelector("input[name='name']").value
-          let content = myForm.querySelector("input[name='content']").value
-          // 创建表
-          var Message = AV.Object.extend('Message');
-          // 创建数据
-          var messages = new Message();
-          messages.save({
-            name: name,
-            content: content
-          }).then(function(object) {
+      saveMessage: function() {
+        let name = this.form.querySelector("input[name='name']").value
+        let content = this.form.querySelector("input[name='content']").value
+        this.model.save(name,content)
+          .then(function(object) {
             let li = document.createElement('li')
             li.innerText = `${object.attributes.name}：${object.attributes.content}`
-            console.log(1)
-            let messageList = document.querySelector('#messageList')
-            messageList.appendChild(li)
+            this.messageList.appendChild(li)
           })
-        })
+        this.form.querySelector("input[name='content']").value = ''
       }
     }
-    controller.init(view)
+    controller.init(view,model)
   }.call()
