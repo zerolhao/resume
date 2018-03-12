@@ -47,43 +47,15 @@ myForm.addEventListener('submit', function(e) {
   })*/
 
   ! function() {
-    var view = document.querySelector('section.message')
+    var view = View('section.message')
 
-    var model = {
-      init: function(){
-        var APP_ID = 'gTetAbFKeg2VgSlMXf31bfH2-gzGzoHsz';
-        var APP_KEY = 'd418rWCgfsIOWKuA7y1Tf41g';
-        AV.init({
-          appId: APP_ID,
-          appKey: APP_KEY
-        });
-      },
-      fetch: function(){
-        var query = new AV.Query('Message');
-        return query.find()
-      },
-      save: function(name, content){
-        // 创建表
-        var Message = AV.Object.extend('Message');
-        // 创建数据
-        var messages = new Message();
-        return messages.save({
-          name: name,
-          content: content
-        })
-      }
-    }
+    var model = Model({resourceName: 'Message'})
 
-    var controller = {
-      view: null,
+    var controller = Controller({
       init: function(view,model) {
-        this.view = view
-        this.model = model
         this.form = view.querySelector('#postMessageForm')
         this.messageList = view.querySelector('#messageList')
-        this.model.init()
         this.loadMessage()
-        this.bindEvents()
       },
       bindEvents: function(){
         this.form.addEventListener('submit', (e)=> {
@@ -91,7 +63,7 @@ myForm.addEventListener('submit', function(e) {
           this.saveMessage()
         })
       },
-      loadMessage: function() {
+      loadMessage: function(){
           this.model.fetch()
           .then(function(messages) {
             let array = messages.map((item) => item.attributes)
@@ -106,20 +78,17 @@ myForm.addEventListener('submit', function(e) {
       saveMessage: function() {
         let name = this.form.querySelector("input[name='name']").value
         let content = this.form.querySelector("input[name='content']").value
+        // 检测用户是否输入
         var len = 0
         let nameArr = name.split('')
-        nameArr.forEach((ele)=>{
-          if(ele === '\u0020'){len++}
-        })
+        nameArr.forEach((ele)=>{if(ele === '\u0020'){len++} })
         if(len === nameArr.length){
           alert('请输入昵称和内容！')
           return
         }
         len = 0
         let contentArr = content.split('')
-        contentArr.forEach((ele)=>{
-          if(ele === '\u0020'){len++}
-        })
+        contentArr.forEach((ele)=>{if(ele === '\u0020'){len++} })
         if(len === contentArr.length){
           alert('请输入昵称和内容！')
           return
@@ -128,7 +97,7 @@ myForm.addEventListener('submit', function(e) {
           alert('请输入昵称和内容！')
           return
         }*/
-        this.model.save(name,content)
+        this.model.save({'name': name, 'content': content})
           .then(function(object) {
             let li = document.createElement('li')
             li.innerText = `${object.attributes.name}：${object.attributes.content}`
@@ -136,6 +105,7 @@ myForm.addEventListener('submit', function(e) {
           })
         this.form.querySelector("input[name='content']").value = ''
       }
-    }
+    })
+
     controller.init(view,model)
   }.call()
